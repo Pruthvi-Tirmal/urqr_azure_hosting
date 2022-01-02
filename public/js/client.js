@@ -7,13 +7,21 @@ const copyBtn = document.querySelector('#copyBtn');
 const copyText = document.querySelector('#copyText')
 const toast = document.querySelector('.toast-body');
 
+
+
 // local Storage
 // this is the first time
 if (!localStorage.noFirstVisit) {
     // show the element
     // and do the animation you want
     document.getElementById('firstTime').style.display = 'block';
-
+    // close in tablet-to mobile size
+    if (window.innerWidth <= '768') {
+        console.log('hello');
+        document.querySelector('.demo').style.display = 'none';
+        qr_code_img.style.display = 'none';
+        document.querySelector('.thanks').style.marginTop = '20px';
+    }
     // check this flag for escaping this if block next time
     localStorage.noFirstVisit = "1";
 }
