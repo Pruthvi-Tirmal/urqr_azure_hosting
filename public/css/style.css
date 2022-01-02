@@ -27,16 +27,12 @@ body {
 }
 .mainContainer {
   margin-top: 1rem;
-  /* max-height: 81vh;
-  height: 78vh; */
   padding: 10px;
 }
 #firstTime {
   display: none;
 }
-.demo {
-  color: #5986fa;
-}
+
 .thanks {
   color: #59fa86;
 }

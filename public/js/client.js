@@ -8,6 +8,8 @@ const copyText = document.querySelector('#copyText')
 const toast = document.querySelector('.toast-body');
 
 
+// initial value of image
+qr_code_img.style.display = 'none';
 
 // local Storage
 // this is the first time
@@ -19,11 +21,11 @@ if (!localStorage.noFirstVisit) {
     if (window.innerWidth <= '768') {
         console.log('hello');
         document.querySelector('.demo').style.display = 'none';
-        qr_code_img.style.display = 'none';
         document.querySelector('.thanks').style.marginTop = '20px';
     }
     // check this flag for escaping this if block next time
     localStorage.noFirstVisit = "1";
+    qr_code_img.style.display = 'none';
 }
 
 // Copy the text to clipboard
