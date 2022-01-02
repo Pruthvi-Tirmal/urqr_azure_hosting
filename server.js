@@ -39,12 +39,12 @@ app.post('/', async (req, res) => {
             return
         } else {
             const shortId = nanoid(10);
-            const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=http://localhost:3000/${shortId}`
+            const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://urqr.herokuapp.com/${shortId}`
             const shortUrl = new ShortUrlModel({ fullUrl, shortId, qrCode })
             const result = await shortUrl.save();
             res.render('index', {
                 fullUrl,
-                shortUrl: `http://localhost:3000/${result.shortId}`,
+                shortUrl: `https://urqr.herokuapp.com/${result.shortId}`,
                 qrCode: result.qrCode,
                 message: "URL and QR Code Is Generated"
             })
