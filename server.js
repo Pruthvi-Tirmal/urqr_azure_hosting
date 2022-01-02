@@ -35,7 +35,7 @@ app.post('/', async (req, res) => {
         const { fullUrl } = req.body;
         const urlExist = await ShortUrlModel.findOne({ fullUrl })
         if (urlExist) {
-            res.render('index', { fullUrl, shortUrl: `https://urqr.herokuapp.com/${urlExist.shortId}`, qrCode: urlExist.qrCode, message: "URL and QR Code Is Generated" })
+            res.render('index', { openImg: 'openImg', fullUrl, shortUrl: `https://urqr.herokuapp.com/${urlExist.shortId}`, qrCode: urlExist.qrCode, message: "URL and QR Code Is Generated" })
             return
         } else {
             const shortId = nanoid(10);
@@ -43,6 +43,7 @@ app.post('/', async (req, res) => {
             const shortUrl = new ShortUrlModel({ fullUrl, shortId, qrCode })
             const result = await shortUrl.save();
             res.render('index', {
+                openImg: 'openImg',
                 fullUrl,
                 shortUrl: `https://urqr.herokuapp.com/${result.shortId}`,
                 qrCode: result.qrCode,
@@ -50,7 +51,7 @@ app.post('/', async (req, res) => {
             })
         }
     } catch (err) {
-        res.render('index', { closeImg: 'closeImg', message: 'Fields Are Empty !' })
+        res.render('index', { message: 'Fields Are Empty !' })
     }
 })
 

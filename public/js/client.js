@@ -8,8 +8,7 @@ const copyText = document.querySelector('#copyText')
 const toast = document.querySelector('.toast-body');
 
 
-// initial value of image
-qr_code_img.style.display = 'none';
+
 
 // local Storage
 // this is the first time
