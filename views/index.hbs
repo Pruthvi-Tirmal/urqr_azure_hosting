@@ -1,0 +1,133 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>UrQr</title>
+  </head>
+  <body>
+    <!-- Node Url Shortener And QR-CODE Generator-->
+    <nav class="container-fluid nav__background">
+      <h1 class="display-5 fw-bold">UrQr</h1>
+      <h4 class="fw-bold text-center">Shortener = URL + QRCODE</h4>
+    </nav>
+    <!-- First time View Demo -->
+    <div class="container" id="firstTime">
+      <h5 class="text-center mt-4 demo">
+        Below is the demo to use, which has predefined values to see
+      </h5>
+      <h6 class="thanks text-center text-uppercase">
+        🎊 Thanks For Visiting, for a first Time 🎊
+      </h6>
+    </div>
+    <div class="container mainContainer">
+      <form
+        action="/"
+        method="POST"
+        class="container d-flex align-items-center justify-content-evenly"
+      >
+        <input
+          placeholder="Enter Your Link"
+          type="text"
+          name="fullUrl"
+          value="{{fullUrl}}"
+          id="shortener"
+          class="form-control p-2"
+        />
+        <button
+          type="submit"
+          id="sendLink"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Click Me"
+          class="btn sendMe__btn fw-bold"
+        >
+          Click
+        </button>
+      </form>
+      <div class="container copyGetter">
+        <input
+          type="text"
+          placeholder="Shorten Link"
+          name="shortUrl"
+          id="copyText"
+          value="{{shortUrl}}"
+          class="p-2 form-control"
+          readonly
+        />
+        <button
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Copy Me"
+          class="btn copyBtn fw-bold p-2"
+          id="copyBtn"
+        >
+          Copy
+        </button>
+      </div>
+      <div class="container mt-5 box__opt">
+        <hr size="5" class="text-white" />
+        <span>OR</span>
+      </div>
+      <div class="container img__box">
+        <span id="loader-box">
+          <span id="loading"></span>
+        </span>
+        <img class="{{closeImg}}" id="qr_code_img" src="{{qrCode}}" alt="" />
+      </div>
+    </div>
+    <!-- Toast -->
+    <div
+      class="toast align-items-center text-white bg-dark border-0"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="toast-body">{{message}}</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+    {{! footer contact me }}
+    <div class="container-fluid footer mt-1">
+      <a
+        target="_blank"
+        class="nav-link"
+        href="https://www.instagram.com/phoenix_81_/"
+      ><h4 class="developer text-center p-1">Design And Developed By Phoenix ⚡</h4></a>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"
+    ></script>
+    <!-- Tool Tip -->
+    <script>
+      var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]') ); var tooltipList
+      = tooltipTriggerList.map(function (tooltipTriggerEl) { return new
+      bootstrap.Tooltip(tooltipTriggerEl); });
+    </script>
+    <script src="js/client.js"></script>
+  </body>
+</html>
