@@ -35,7 +35,7 @@ app.post('/', async (req, res) => {
         const { fullUrl } = req.body;
         const urlExist = await ShortUrlModel.findOne({ fullUrl })
         if (urlExist) {
-            res.render('index', { fullUrl, shortUrl: `http://localhost:3000/${urlExist.shortId}`, qrCode: urlExist.qrCode, message: "URL and QR Code Is Generated" })
+            res.render('index', { fullUrl, shortUrl: `https://urqr.herokuapp.com/${urlExist.shortId}`, qrCode: urlExist.qrCode, message: "URL and QR Code Is Generated" })
             return
         } else {
             const shortId = nanoid(10);
