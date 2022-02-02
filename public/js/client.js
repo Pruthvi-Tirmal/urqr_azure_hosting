@@ -5,7 +5,6 @@ const loader = document.querySelector('#loading');
 const loaderBox = document.querySelector('#loader-box')
 const copyBtn = document.querySelector('#copyBtn');
 const copyText = document.querySelector('#copyText')
-const toast = document.querySelector('.toast-body');
 
 
 
@@ -34,12 +33,7 @@ copyBtn.addEventListener('click', () => {
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(copyText.value);
-    toast.innerHTML = 'Copied Successfully';
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl)
-    })
-    toastList.forEach(toast => toast.show())
+
 
 })
 
@@ -64,11 +58,7 @@ sendLink.addEventListener('click', (e) => {
             qr_code_img.style.display = 'inline'
         })
     }
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl)
-    })
-    toastList.forEach(toast => toast.show())
+
 })
 
 

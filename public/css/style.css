@@ -136,12 +136,6 @@ img {
   height: auto;
 }
 
-/* toast */
-.toast {
-  position: absolute;
-  bottom: 4%;
-  right: 1%;
-}
 .footer {
   background-color: #181b1b;
 }

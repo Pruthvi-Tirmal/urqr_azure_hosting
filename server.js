@@ -2,12 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
+const favicon = require('serve-favicon')
+const path = require('path')
 const ShortUrlModel = require('./models/urlSchema');
 // nano ID
 const { nanoid } = require('nanoid');
 // static files
 // middleware
 app.use(express.static('./public/'))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 // port number
