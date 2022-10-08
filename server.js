@@ -38,17 +38,17 @@ app.post('/', async (req, res) => {
         const { fullUrl } = req.body;
         const urlExist = await ShortUrlModel.findOne({ fullUrl })
         if (urlExist) {
-            res.render('index', { openImg: 'openImg', fullUrl, shortUrl: `https://urqr.herokuapp.com/${urlExist.shortId}`, qrCode: urlExist.qrCode, message: "URL and QR Code Is Generated" })
+            res.render('index', { openImg: 'openImg', fullUrl, shortUrl: `https://urqr.azurewebsites.net/${urlExist.shortId}`, qrCode: urlExist.qrCode, message: "URL and QR Code Is Generated" })
             return
         } else {
             const shortId = nanoid(10);
-            const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://urqr.herokuapp.com/${shortId}`
+            const qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://urqr.azurewebsites.net/${shortId}`
             const shortUrl = new ShortUrlModel({ fullUrl, shortId, qrCode })
             const result = await shortUrl.save();
             res.render('index', {
                 openImg: 'openImg',
                 fullUrl,
-                shortUrl: `https://urqr.herokuapp.com/${result.shortId}`,
+                shortUrl: `https://urqr.azurewebsites.net/${result.shortId}`,
                 qrCode: result.qrCode,
                 message: "URL and QR Code Is Generated"
             })
