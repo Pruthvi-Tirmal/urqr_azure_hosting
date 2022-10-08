@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'urqr'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_718B188E8D8B4F55AC021B9F55BE0FCC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2C61FFAD369849889B67435D4B93087B }}
           package: .
